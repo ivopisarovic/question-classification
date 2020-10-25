@@ -66,6 +66,18 @@ _Check your systems' text encoding scheme. It is set to `text_file_encoding = "u
 
 * `all_models` will not clean the additional model defined by you. It will only clean the models mentioned above.
 
+#### API
+
+Start simple REST API with `./bin/qc.sh api {ml_algo_model}` (run also `nlp` and `train` before).
+
+Then send POST request to `http://localhost:5003/classify` with body:
+
+```
+{"question": "How are you?"}
+```
+
+The response has two attributes: `coarse_class` and `fine_class`.
+
 #### Experimental Code
 
 1. The method to convert text data to ML features can be modified in function `qc.dataprep.text_features.get_vect`. [code location](qc/dataprep/text_features.py)
